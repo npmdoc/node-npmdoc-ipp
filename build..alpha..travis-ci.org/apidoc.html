@@ -1,0 +1,1139 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://github.com/williamkapke/ipp"
+
+    >ipp (v1.1.0)</a>
+</h1>
+<h4>Internet Printing Protocol (IPP) for nodejs</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ipp">module ipp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.Printer">
+            function <span class="apidocSignatureSpan">ipp.</span>Printer
+            <span class="apidocSignatureSpan">(url, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.parse">
+            function <span class="apidocSignatureSpan">ipp.</span>parse
+            <span class="apidocSignatureSpan">(buf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.request">
+            function <span class="apidocSignatureSpan">ipp.</span>request
+            <span class="apidocSignatureSpan">(opts, buffer, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.serialize">
+            function <span class="apidocSignatureSpan">ipp.</span>serialize
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>Printer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>attribute</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>attributes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>enums</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>ipputil</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>keywords</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>operations</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>statusCodes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>tags</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ipp.</span>versions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ipp.Printer">module ipp.Printer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.Printer.Printer">
+            function <span class="apidocSignatureSpan">ipp.</span>Printer
+            <span class="apidocSignatureSpan">(url, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ipp.Printer.prototype">module ipp.Printer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.Printer.prototype._message">
+            function <span class="apidocSignatureSpan">ipp.Printer.prototype.</span>_message
+            <span class="apidocSignatureSpan">(operation, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.Printer.prototype.execute">
+            function <span class="apidocSignatureSpan">ipp.Printer.prototype.</span>execute
+            <span class="apidocSignatureSpan">(operation, msg, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ipp.ipputil">module ipp.ipputil</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.ipputil.extend">
+            function <span class="apidocSignatureSpan">ipp.ipputil.</span>extend
+            <span class="apidocSignatureSpan">(destination, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.ipputil.xref">
+            function <span class="apidocSignatureSpan">ipp.ipputil.</span>xref
+            <span class="apidocSignatureSpan">(arr)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ipp.parse">module ipp.parse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.parse.parse">
+            function <span class="apidocSignatureSpan">ipp.</span>parse
+            <span class="apidocSignatureSpan">(buf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ipp.parse.handleUnknownTag">
+            function <span class="apidocSignatureSpan">ipp.parse.</span>handleUnknownTag
+            <span class="apidocSignatureSpan">(tag, name, length, read)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ipp" id="apidoc.module.ipp">module ipp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.Printer" id="apidoc.element.ipp.Printer">
+        function <span class="apidocSignatureSpan">ipp.</span>Printer
+        <span class="apidocSignatureSpan">(url, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Printer(url, opts){
+	if(!(this instanceof Printer)) return new Printer(url, opts);
+	opts = opts || {};
+	this.url = typeof url===&#x22;string&#x22;? parseurl(url) : url;
+	this.version = opts.version || &#x27;2.0&#x27;;
+	this.uri = opts.uri || &#x27;ipp://&#x27; + this.url.host + this.url.path;
+	this.charset = opts.charset || &#x27;utf-8&#x27;;
+	this.language = opts.language || &#x27;en-us&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var PDFDocument = require(&#x27;pdfkit&#x27;);
+
+//make a PDF document
+var doc = new PDFDocument({margin:0});
+doc.text(&#x22;.&#x22;, 0, 780);
+
+doc.output(function(pdf){
+	var printer = ipp.<span class="apidocCodeKeywordSpan">Printer</span>(&#x22;http://NPI977E4E.local.:631/ipp/printer&#x22;);
+	var msg = {
+		&#x22;operation-attributes-tag&#x22;: {
+			&#x22;requesting-user-name&#x22;: &#x22;William&#x22;,
+			&#x22;job-name&#x22;: &#x22;My Test Job&#x22;,
+			&#x22;document-format&#x22;: &#x22;application/pdf&#x22;
+		},
+		data: pdf
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.parse" id="apidoc.element.ipp.parse">
+        function <span class="apidocSignatureSpan">ipp.</span>parse
+        <span class="apidocSignatureSpan">(buf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (buf) {
+	var obj = {};
+	var position = 0;
+	var encoding = &#x27;utf8&#x27;;
+	function read1(){
+		return buf[position++];
+	}
+	function read2(){
+		var val = buf.readInt16BE(position, true);
+		position+=2;
+		return val;
+	}
+	function read4(){
+		var val = buf.readInt32BE(position, true);
+		position+=4;
+		return val;
+	}
+	function read(length, enc){
+		if(length==0) return &#x27;&#x27;;
+		return buf.toString(enc||encoding, position, position+=length);
+	}
+	function readGroups(){
+		var group;
+		while(position &#x3c; buf.length &#x26;&#x26; (group = read1()) !== 0x03){//end-of-attributes-tag
+			readGroup(group);
+		}
+	}
+	function readGroup(group){
+		var name = tags.lookup[group];
+		group={};
+		if(obj[name]){
+			if(!Array.isArray(obj[name]))
+				obj[name] = [obj[name]];
+			obj[name].push(group);
+		}
+		else obj[name] = group;
+
+		while(buf[position] &#x3e;= 0x0F) {// delimiters are between 0x00 to 0x0F
+			readAttr(group);
+		}
+	}
+	function readAttr(group){
+		var tag = read1();
+		//TODO: find a test for this
+		if (tag === 0x7F){//tags.extension
+			tag = read4();
+		}
+		var name = read(read2());
+		group[name] = readValues(tag, name)
+	}
+	function hasAdditionalValue(){
+		var current = buf[position];
+		return current !== 0x4A //tags.memberAttrName
+			&#x26;&#x26; current !== 0x37 //tags.endCollection
+			&#x26;&#x26; current !== 0x03 //tags.end-of-attributes-tag
+			&#x26;&#x26; buf[position+1] === 0x00 &#x26;&#x26; buf[position+2] === 0x00;
+	}
+	function readValues(type, name){
+		var value = readValue(type, name);
+		if(hasAdditionalValue()){
+			value = [value];
+			do{
+				type = read1();
+				read2();//empty name
+				value.push(readValue(type, name));
+			}
+			while(hasAdditionalValue())
+		}
+		return value;
+	}
+	function readValue(tag, name){
+		var length = read2();
+		//http://tools.ietf.org/html/rfc2910#section-3.9
+		switch (tag) {
+			case tags.enum:
+				var val = read4();
+				return (enums[name] &#x26;&#x26; enums[name].lookup[val]) || val;
+			case tags.integer:
+				return read4();
+
+			case tags.boolean:
+				return !!read1();
+
+			case tags.rangeOfInteger:
+				return [read4(), read4()];
+
+			case tags.resolution:
+				return [read4(), read4(), read1()===0x03? &#x27;dpi&#x27;:&#x27;dpcm&#x27;];
+
+			case tags.dateTime:
+				// http://tools.ietf.org/html/rfc1903 page 17
+				var date = new Date(read2(), read1(), read1(), read1(), read1(), read1(), read1());
+				//silly way to add on the timezone
+				return new Date(date.toISOString().substr(0,23).replace(&#x27;T&#x27;,&#x27;,&#x27;) +&#x27;,&#x27;+ String.fromCharCode(read(1)) + read(1) + &#x27;:&#x27; + read(1
+));
+
+			case tags.textWithLanguage:
+			case tags.nameWithLanguage:
+				var lang = read(read2());
+				var subval = read(read2());
+				return lang+RS+subval;
+
+			case tags.nameWithoutLanguage:
+			case tags.textWithoutLanguage:
+			case tags.octetString:
+			case tags.memberAttrName:
+				return read(length);
+
+			case tags.keyword:
+			case tags.uri:
+			case tags.uriScheme:
+			case tags.charset:
+			case tags.naturalLanguage:
+			case tags.mimeMediaType:
+				return read(length, &#x27;ascii&#x27;);
+
+			case tags.begCollection:
+				//the spec says a value could be present- but can be ignored
+				read(length);
+				return readCollection();
+
+			case tags[&#x27;no-value&#x27;]:
+			default:
+				debugger;
+				return module.exports.handleUnknownTag(tag, name, length, read)
+		}
+	}
+	function readCollection(){
+		var tag;
+		var collection = {};
+
+		while((tag = read1()) !== 0x37){//tags.endCollection
+			if(tag !== 0x4A){
+				console.log(&#x22;unexpected:&#x22;, tags.lookup[tag]);
+				return;
+			}
+			//read nametag name and discard it
+			read(read2());
+			var name = readValue(0x4A);
+			var values = readCollectionItemValue();
+			collection[name] = values;
+		}
+		//Read endCollection name &#x26; value and discard it.
+		//The spec says that they MAY have contents in the
+		// future- so we can&#x27;t assume they are empty.
+		read(read2());
+		read(read2());
+
+		return collection;
+	}
+	function readCollectionItemValue(name){
+		var tag = read1();
+		//TODO: find a test for this
+		if (tag === 0x7F){//tags.extension
+			tag = read4();
+		}
+		//read valuetag name and discard it
+		read(read2());
+
+		return readValues(tag, name);
+	}
+
+	obj.version = read1() + &#x27;.&#x27; + read1();
+	var bytes2and3 = read2();
+	//byte[2] and b ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### printer.execute(operation, message, callback)
+Executes an IPP operation on the Printer object.
+
+* &#x27;operation&#x27; - There are many operations defined by IPP. See: [/lib/enums.js](https://github.com/williamkapke/ipp/blob
+/master/lib/enums.js#L52).
+* &#x27;message - A javascript object to be serealized into an IPP binary message.
+* &#x27;callback(err, response)&#x27; - A function to callback with the Printer&#x27;s response.
+
+## ipp.<span class="apidocCodeKeywordSpan">parse</span>(buffer)
+
+Parses a binary IPP message into a javascript object tree.
+
+```javascript
+var ipp = require(&#x27;ipp&#x27;);
+var data = new Buffer(
+&#x27;0200&#x27; +	//version 2.0
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.request" id="apidoc.element.ipp.request">
+        function <span class="apidocSignatureSpan">ipp.</span>request
+        <span class="apidocSignatureSpan">(opts, buffer, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (opts, buffer, cb){
+	var streamed = typeof buffer === &#x22;function&#x22;;
+	//All IPP requires are POSTs- so we must have some data.
+	//  10 is just a number I picked- this probably should have something more meaningful
+	if(!Buffer.isBuffer(buffer) || buffer.length&#x3c;10){
+		return cb(new Error(&#x22;Data required&#x22;));
+	}
+	if(typeof opts === &#x22;string&#x22;)
+		opts = url.parse(opts);
+	if(!opts.port) opts.port = 631;
+
+	if(!opts.headers) opts.headers = {};
+	opts.headers[&#x27;Content-Type&#x27;] = &#x27;application/ipp&#x27;;
+	opts.method = &#x22;POST&#x22;;
+	
+	if(opts.protocol===&#x22;ipp:&#x22;)
+		opts.protocol=&#x22;http:&#x22;;
+
+	if(opts.protocol===&#x22;ipps:&#x22;)
+		opts.protocol=&#x22;https:&#x22;;
+
+	var req = (opts.protocol===&#x22;https:&#x22; ? https : http).request(opts, function(res){
+//		console.log(&#x27;STATUS: &#x27; + res.statusCode);
+//		console.log(&#x27;HEADERS: &#x27; + JSON.stringify(res.headers));
+		switch(res.statusCode){
+			case 100:
+				if(opts.headers[&#x27;Expect&#x27;] !== &#x27;100-Continue&#x27; || typeof opts.continue !== &#x22;function&#x22;){
+					cb(new IppResponseError(res.statusCode));
+				}
+				return console.log(&#x22;100 Continue&#x22;);
+			case 200:
+				return readResponse(res, cb);
+			default:
+				cb(new IppResponseError(res.statusCode));
+				return console.log(res.statusCode, &#x22;response&#x22;);
+		}
+	});
+	req.on(&#x27;error&#x27;, function(err) {
+		cb(err);
+	});
+	if(opts.headers[&#x27;Expect&#x27;] === &#x27;100-Continue&#x27; &#x26;&#x26; typeof opts.continue=== &#x22;function&#x22;){
+		req.on(&#x27;continue&#x27;, function() {
+			opts.continue(req);
+		});
+	}
+	req.write(buffer);
+	req.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## ipp.serialize(msg)
+Converts an IPP message object to IPP binary.
+
+See [request](#request) for example.
+
+&#x3c;a id=&#x22;request&#x22;&#x3e;&#x3c;/a&#x3e;
+## ipp.<span class="apidocCodeKeywordSpan">request</span>(url, data, callback)
+
+Makes an IPP request to a url.
+
+```javascript
+var ipp = require(&#x27;ipp&#x27;);
+var uri = &#x22;your_printer&#x22;;
+var data = ipp.serialize({
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.serialize" id="apidoc.element.ipp.serialize">
+        function <span class="apidocSignatureSpan">ipp.</span>serialize
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serializer(msg){
+	var buf = new Buffer(10240);
+	var position = 0;
+	function write1(val){
+		buf.writeUInt8(val, position);
+		position+=1;
+	}
+	function write2(val){
+		buf.writeUInt16BE(val, position);
+		position+=2;
+	}
+	function write4(val){
+		buf.writeUInt32BE(val, position);
+		position+=4;
+	}
+	function write(str, enc){
+		var length = Buffer.byteLength(str);
+		write2(length);
+		buf.write(str, position, length, enc || &#x22;utf8&#x22;);
+		position+=length;
+	}
+	var special = {&#x27;attributes-charset&#x27;:1, &#x27;attributes-natural-language&#x27;:2};
+	var groupmap = {
+		&#x22;job-attributes-tag&#x22;:	               [&#x27;Job Template&#x27;, &#x27;Job Description&#x27;],
+		&#x27;operation-attributes-tag&#x27;:          &#x27;Operation&#x27;,
+		&#x27;printer-attributes-tag&#x27;:            &#x27;Printer Description&#x27;,
+		&#x22;unsupported-attributes-tag&#x22;:        &#x27;&#x27;,//??
+		&#x22;subscription-attributes-tag&#x22;:       &#x27;Subscription Description&#x27;,
+		&#x22;event-notification-attributes-tag&#x22;: &#x27;Event Notifications&#x27;,
+		&#x22;resource-attributes-tag&#x22;:           &#x27;&#x27;,//??
+		&#x22;document-attributes-tag&#x22;:           &#x27;Document Description&#x27;
+	};
+	function writeGroup(tag){
+		var attrs = msg[tag];
+		if(!attrs) return;
+		var keys = Object.keys(attrs);
+		//&#x27;attributes-charset&#x27; and &#x27;attributes-natural-language&#x27; need to come first- so we sort them to the front
+		if(tag==tags[&#x27;operation-attributes-tag&#x27;])
+			keys = keys.sort(function(a,b){ return (special[a]||3)-(special[b]||3); });
+		var groupname = groupmap[tag];
+		write1(tags[tag]);
+		keys.forEach(function(name){
+			attr(groupname, name, attrs);
+		});
+	}
+	function attr(group, name, obj){
+		var groupName = Array.isArray(group)
+			? group.find((grp) =&#x3e; { return attributes[grp][name] })
+			: group;
+		if(!groupName) throw &#x22;Unknown attribute: &#x22; + name;
+
+		var syntax = attributes[groupName][name];
+		if(!syntax) throw &#x22;Unknown attribute: &#x22; + name;
+
+		var value = obj[name];
+		if(!Array.isArray(value))
+			value = [value];
+
+		value.forEach(function(value, i){
+			//we need to re-evaluate the alternates every time
+			var syntax2 = Array.isArray(syntax)? resolveAlternates(syntax, name, value) : syntax;
+			var tag = getTag(syntax2, name, value);
+			if(tag===tags.enum)
+				value = enums[name][value];
+
+			write1(tag);
+			if(i==0){
+				write(name);
+			}
+			else {
+				write2(0x0000);//empty name
+			}
+
+			writeValue(tag, value, syntax2.members);
+		});
+	}
+	function getTag(syntax, name, value){
+		var tag = syntax.tag;
+		if(!tag){
+			var hasRS = !!~value.indexOf(RS);
+			tag = tags[syntax.type+(hasRS?&#x27;With&#x27;:&#x27;Without&#x27;)+&#x27;Language&#x27;];
+		}
+		return tag;
+	}
+	function resolveAlternates(array, name, value){
+		switch(array.alts){
+			case &#x27;keyword,name&#x27;:
+			case &#x27;keyword,name,novalue&#x27;:
+				if(value===null &#x26;&#x26; array.lookup[&#x27;novalue&#x27;]) return array.lookup[&#x27;novalue&#x27;];
+				return ~keywords[name].indexOf(value)? array.lookup.keyword : array.lookup.name;
+			case &#x27;integer,rangeOfInteger&#x27;:
+				return Array.isArray(value)? array.lookup.rangeOfInteger : array.lookup.integer;
+			case &#x27;dateTime,novalue&#x27;:
+				return !IsNaN(date.parse(value))? array.lookup.dateTime : array.lookup[&#x27;novalue&#x27;];
+			case &#x27;integer,novalue&#x27;:
+				return !IsNaN(value)? array.lookup.integer : array.lookup[&#x27;novalue&#x27;];
+			case &#x27;name,novalue&#x27;:
+				return value!==null? array.lookup.name : array.lookup[&#x27;novalue&#x27;];
+			case &#x27;novalue,uri&#x27;:
+				return value!==null? array.lookup.uri : array.lookup[&#x27;novalue&#x27;];
+			case &#x27;enumeration,unknown&#x27;:
+				return enums[name][value]? array.lookup[&#x27;enumeration&#x27;] : array.lookup.unknown;
+			case &#x27;enumeration,novalue&#x27;:
+				return value!==null? array.lookup[&#x27;enumeration&#x27;] : array.lookup[&#x27;novalue&#x27;];
+			case &#x27;collection,novalue&#x27;:
+				return value!==null? array.lookup[&#x27;enumeration&#x27;] : array.lookup[&#x27;novalue&#x27;];
+			default:
+				throw &#x22;Unknown atlernates&#x22;;
+		}
+	}
+	function writeValue(tag, value, submembers){
+		switch(tag){
+			case tags.enum:
+				write2(0x0004);
+				return write4(value);
+			case tags.integer:
+				write2(0x0004);
+				return write4(value);
+
+			case tags.boolean:
+				write2(0x0001);
+				return write1(Number(value));
+
+			case tags.rangeOfInteger:
+				write2(0x0008);
+				write4(value[0]);
+				write4(value[1]);
+				return;
+
+			case tags.resolution:
+				w ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//	&#x22;operation-attributes-tag&#x22;: {
+//		&#x22;attributes-charset&#x22;: &#x22;utf-8&#x22;,
+//		&#x22;attributes-natural-language&#x22;: &#x22;en&#x22;
+//	}
+//}
+```
+
+## ipp.<span class="apidocCodeKeywordSpan">serialize</span>(msg)
+Converts an IPP message object to IPP binary.
+
+See [request](#request) for example.
+
+&#x3c;a id=&#x22;request&#x22;&#x3e;&#x3c;/a&#x3e;
+## ipp.request(url, data, callback)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ipp.Printer" id="apidoc.module.ipp.Printer">module ipp.Printer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.Printer.Printer" id="apidoc.element.ipp.Printer.Printer">
+        function <span class="apidocSignatureSpan">ipp.</span>Printer
+        <span class="apidocSignatureSpan">(url, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Printer(url, opts){
+	if(!(this instanceof Printer)) return new Printer(url, opts);
+	opts = opts || {};
+	this.url = typeof url===&#x22;string&#x22;? parseurl(url) : url;
+	this.version = opts.version || &#x27;2.0&#x27;;
+	this.uri = opts.uri || &#x27;ipp://&#x27; + this.url.host + this.url.path;
+	this.charset = opts.charset || &#x27;utf-8&#x27;;
+	this.language = opts.language || &#x27;en-us&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var PDFDocument = require(&#x27;pdfkit&#x27;);
+
+//make a PDF document
+var doc = new PDFDocument({margin:0});
+doc.text(&#x22;.&#x22;, 0, 780);
+
+doc.output(function(pdf){
+	var printer = ipp.<span class="apidocCodeKeywordSpan">Printer</span>(&#x22;http://NPI977E4E.local.:631/ipp/printer&#x22;);
+	var msg = {
+		&#x22;operation-attributes-tag&#x22;: {
+			&#x22;requesting-user-name&#x22;: &#x22;William&#x22;,
+			&#x22;job-name&#x22;: &#x22;My Test Job&#x22;,
+			&#x22;document-format&#x22;: &#x22;application/pdf&#x22;
+		},
+		data: pdf
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ipp.Printer.prototype" id="apidoc.module.ipp.Printer.prototype">module ipp.Printer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.Printer.prototype._message" id="apidoc.element.ipp.Printer.prototype._message">
+        function <span class="apidocSignatureSpan">ipp.Printer.prototype.</span>_message
+        <span class="apidocSignatureSpan">(operation, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_message = function (operation, msg){
+		if(typeof operation === &#x22;undefined&#x22;) operation = &#x27;Get-Printer-Attributes&#x27;;
+
+		var base = {
+			version: this.version,
+			operation: operation,
+			id: null,//will get added by serializer if one isn&#x27;t given
+			&#x27;operation-attributes-tag&#x27;: {
+				//these are required to be in this order
+				&#x27;attributes-charset&#x27;: this.charset,
+				&#x27;attributes-natural-language&#x27;: this.language,
+				&#x27;printer-uri&#x27;: this.uri
+			}
+		};
+		//these are required to be in this order
+		if(msg &#x26;&#x26; msg[&#x27;operation-attributes-tag&#x27;][&#x27;job-id&#x27;])
+			base[&#x27;operation-attributes-tag&#x27;][&#x27;job-id&#x27;] = msg[&#x27;operation-attributes-tag&#x27;][&#x27;job-id&#x27;];
+		//yes, this gets done in extend()- however, by doing this now, we define the position in the result object.
+		else if(msg &#x26;&#x26; msg[&#x27;operation-attributes-tag&#x27;][&#x27;job-uri&#x27;])
+			base[&#x27;operation-attributes-tag&#x27;][&#x27;job-uri&#x27;] = msg[&#x27;operation-attributes-tag&#x27;][&#x27;job-uri&#x27;];
+
+		msg = extend(base, msg);
+		if(msg[&#x27;operation-attributes-tag&#x27;][&#x27;job-uri&#x27;])
+			delete msg[&#x27;operation-attributes-tag&#x27;][&#x27;printer-uri&#x27;];
+		return msg;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.Printer.prototype.execute" id="apidoc.element.ipp.Printer.prototype.execute">
+        function <span class="apidocSignatureSpan">ipp.Printer.prototype.</span>execute
+        <span class="apidocSignatureSpan">(operation, msg, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">execute = function (operation, msg, cb){
+		msg = this._message(operation, msg);
+		var buf = serialize(msg);
+//		console.log(buf.toString(&#x27;hex&#x27;));
+//		console.log(JSON.stringify(
+//			require(&#x27;./parser&#x27;)(buf), null, 2
+//		));
+		request(this.url, buf, cb);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		&#x22;operation-attributes-tag&#x22;: {
+			&#x22;requesting-user-name&#x22;: &#x22;William&#x22;,
+			&#x22;job-name&#x22;: &#x22;My Test Job&#x22;,
+			&#x22;document-format&#x22;: &#x22;application/pdf&#x22;
+		},
+		data: pdf
+	};
+	printer.<span class="apidocCodeKeywordSpan">execute</span>(&#x22;Print-Job&#x22;, msg, function(err, res){
+		console.log(res);
+	});
+});
+```
+
+To interact with a printer, create a `Printer` object.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ipp.ipputil" id="apidoc.module.ipp.ipputil">module ipp.ipputil</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.ipputil.extend" id="apidoc.element.ipp.ipputil.extend">
+        function <span class="apidocSignatureSpan">ipp.ipputil.</span>extend
+        <span class="apidocSignatureSpan">(destination, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(destination, source) {
+	for(var property in source) {
+		if (source[property] &#x26;&#x26; source[property].constructor === Object) {
+			destination[property] = destination[property] || {};
+			extend(destination[property], source[property]);
+		}
+		else {
+			destination[property] = source[property];
+		}
+	}
+	return destination;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.ipputil.xref" id="apidoc.element.ipp.ipputil.xref">
+        function <span class="apidocSignatureSpan">ipp.ipputil.</span>xref
+        <span class="apidocSignatureSpan">(arr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function xref(arr){
+	var obj = {};
+	arr.forEach(function(item, index){
+		obj[item] = index;
+	});
+	obj.lookup = arr;
+	return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	enums: require(&#x27;./lib/enums&#x27;),
+	tags: require(&#x27;./lib/tags&#x27;),
+	statusCodes: require(&#x27;./lib/status-codes&#x27;)
+};
+module.exports.operations = module.exports.enums[&#x27;operations-supported&#x27;];
+module.exports.attribute = {
+	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-7
+	groups: util.<span class="apidocCodeKeywordSpan">xref</span>(module.exports.tags.lookup.slice(0x00, 0x0F)),
+	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-8
+	values: util.xref(module.exports.tags.lookup.slice(0x10, 0x1F)),
+	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-9
+	syntaxes: util.xref(module.exports.tags.lookup.slice(0x20))
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ipp.parse" id="apidoc.module.ipp.parse">module ipp.parse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.parse.parse" id="apidoc.element.ipp.parse.parse">
+        function <span class="apidocSignatureSpan">ipp.</span>parse
+        <span class="apidocSignatureSpan">(buf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (buf) {
+	var obj = {};
+	var position = 0;
+	var encoding = &#x27;utf8&#x27;;
+	function read1(){
+		return buf[position++];
+	}
+	function read2(){
+		var val = buf.readInt16BE(position, true);
+		position+=2;
+		return val;
+	}
+	function read4(){
+		var val = buf.readInt32BE(position, true);
+		position+=4;
+		return val;
+	}
+	function read(length, enc){
+		if(length==0) return &#x27;&#x27;;
+		return buf.toString(enc||encoding, position, position+=length);
+	}
+	function readGroups(){
+		var group;
+		while(position &#x3c; buf.length &#x26;&#x26; (group = read1()) !== 0x03){//end-of-attributes-tag
+			readGroup(group);
+		}
+	}
+	function readGroup(group){
+		var name = tags.lookup[group];
+		group={};
+		if(obj[name]){
+			if(!Array.isArray(obj[name]))
+				obj[name] = [obj[name]];
+			obj[name].push(group);
+		}
+		else obj[name] = group;
+
+		while(buf[position] &#x3e;= 0x0F) {// delimiters are between 0x00 to 0x0F
+			readAttr(group);
+		}
+	}
+	function readAttr(group){
+		var tag = read1();
+		//TODO: find a test for this
+		if (tag === 0x7F){//tags.extension
+			tag = read4();
+		}
+		var name = read(read2());
+		group[name] = readValues(tag, name)
+	}
+	function hasAdditionalValue(){
+		var current = buf[position];
+		return current !== 0x4A //tags.memberAttrName
+			&#x26;&#x26; current !== 0x37 //tags.endCollection
+			&#x26;&#x26; current !== 0x03 //tags.end-of-attributes-tag
+			&#x26;&#x26; buf[position+1] === 0x00 &#x26;&#x26; buf[position+2] === 0x00;
+	}
+	function readValues(type, name){
+		var value = readValue(type, name);
+		if(hasAdditionalValue()){
+			value = [value];
+			do{
+				type = read1();
+				read2();//empty name
+				value.push(readValue(type, name));
+			}
+			while(hasAdditionalValue())
+		}
+		return value;
+	}
+	function readValue(tag, name){
+		var length = read2();
+		//http://tools.ietf.org/html/rfc2910#section-3.9
+		switch (tag) {
+			case tags.enum:
+				var val = read4();
+				return (enums[name] &#x26;&#x26; enums[name].lookup[val]) || val;
+			case tags.integer:
+				return read4();
+
+			case tags.boolean:
+				return !!read1();
+
+			case tags.rangeOfInteger:
+				return [read4(), read4()];
+
+			case tags.resolution:
+				return [read4(), read4(), read1()===0x03? &#x27;dpi&#x27;:&#x27;dpcm&#x27;];
+
+			case tags.dateTime:
+				// http://tools.ietf.org/html/rfc1903 page 17
+				var date = new Date(read2(), read1(), read1(), read1(), read1(), read1(), read1());
+				//silly way to add on the timezone
+				return new Date(date.toISOString().substr(0,23).replace(&#x27;T&#x27;,&#x27;,&#x27;) +&#x27;,&#x27;+ String.fromCharCode(read(1)) + read(1) + &#x27;:&#x27; + read(1
+));
+
+			case tags.textWithLanguage:
+			case tags.nameWithLanguage:
+				var lang = read(read2());
+				var subval = read(read2());
+				return lang+RS+subval;
+
+			case tags.nameWithoutLanguage:
+			case tags.textWithoutLanguage:
+			case tags.octetString:
+			case tags.memberAttrName:
+				return read(length);
+
+			case tags.keyword:
+			case tags.uri:
+			case tags.uriScheme:
+			case tags.charset:
+			case tags.naturalLanguage:
+			case tags.mimeMediaType:
+				return read(length, &#x27;ascii&#x27;);
+
+			case tags.begCollection:
+				//the spec says a value could be present- but can be ignored
+				read(length);
+				return readCollection();
+
+			case tags[&#x27;no-value&#x27;]:
+			default:
+				debugger;
+				return module.exports.handleUnknownTag(tag, name, length, read)
+		}
+	}
+	function readCollection(){
+		var tag;
+		var collection = {};
+
+		while((tag = read1()) !== 0x37){//tags.endCollection
+			if(tag !== 0x4A){
+				console.log(&#x22;unexpected:&#x22;, tags.lookup[tag]);
+				return;
+			}
+			//read nametag name and discard it
+			read(read2());
+			var name = readValue(0x4A);
+			var values = readCollectionItemValue();
+			collection[name] = values;
+		}
+		//Read endCollection name &#x26; value and discard it.
+		//The spec says that they MAY have contents in the
+		// future- so we can&#x27;t assume they are empty.
+		read(read2());
+		read(read2());
+
+		return collection;
+	}
+	function readCollectionItemValue(name){
+		var tag = read1();
+		//TODO: find a test for this
+		if (tag === 0x7F){//tags.extension
+			tag = read4();
+		}
+		//read valuetag name and discard it
+		read(read2());
+
+		return readValues(tag, name);
+	}
+
+	obj.version = read1() + &#x27;.&#x27; + read1();
+	var bytes2and3 = read2();
+	//byte[2] and b ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### printer.execute(operation, message, callback)
+Executes an IPP operation on the Printer object.
+
+* &#x27;operation&#x27; - There are many operations defined by IPP. See: [/lib/enums.js](https://github.com/williamkapke/ipp/blob
+/master/lib/enums.js#L52).
+* &#x27;message - A javascript object to be serealized into an IPP binary message.
+* &#x27;callback(err, response)&#x27; - A function to callback with the Printer&#x27;s response.
+
+## ipp.<span class="apidocCodeKeywordSpan">parse</span>(buffer)
+
+Parses a binary IPP message into a javascript object tree.
+
+```javascript
+var ipp = require(&#x27;ipp&#x27;);
+var data = new Buffer(
+&#x27;0200&#x27; +	//version 2.0
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ipp.parse.handleUnknownTag" id="apidoc.element.ipp.parse.handleUnknownTag">
+        function <span class="apidocSignatureSpan">ipp.parse.</span>handleUnknownTag
+        <span class="apidocSignatureSpan">(tag, name, length, read)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function log(tag, name, length, read) {
+	var value = length? read(length) : undefined;
+	console.log(&#x22;The spec is not clear on how to handle tag &#x22; +tag+ &#x22;: &#x22; +name+ &#x22;=&#x22; +String(value)+ &#x22;. &#x22; +
+		&#x22;Please open a github issue to help find a solution!&#x22;);
+	return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
